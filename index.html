@@ -3,47 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Launch Page</title>
-    <script type="text/javascript">
-        // Detecting device and launching app or redirecting to store
-        function launchApp() {
-            var isAndroid = /android/i.test(navigator.userAgent);
-            var isIOS = /iphone|ipod|ipad/i.test(navigator.userAgent);
-            var appUrl = "";
-            var storeUrl = "";
-
-            // Replace with your actual app URLs
-            var androidAppUrl = "yourapp://";
-            var iosAppUrl = "ComcastBusinessAppURLScheme://";
-            var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.yourapp";
-            var iosStoreUrl = "https://apps.apple.com/us/app/comcast-business/id668736626";
-
-            if (isAndroid) {
-                appUrl = androidAppUrl;
-                storeUrl = androidStoreUrl;
-            } else if (isIOS) {
-                appUrl = iosAppUrl;
-                storeUrl = iosStoreUrl;
-            } else {
-                return;
-            }
-
-            // Attempt to open the app
-            // var startTime = new Date().getTime();
-            // var timeout;
-
-            // Try to open the app
-            window.location = appUrl;
-
-            // If app does not open within 2 seconds, redirect to store
-            setTimeout(function() {
-                window.location = storeUrl;
-            }, 1000);
-        }
-        // Call the launchApp function as soon as the page loads
-        window.onload = function() {
-            launchApp();
-        };        
-    </script>
+    <title>Generate QR Code for iOS App</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
+<body>
+    <h1>Scan the QR Code to Launch the App</h1>
+    <div id="qrcode"></div>
+
+    <script>
+        // Replace with your app's deep link and App Store URL
+        var deepLink = "ComcastBusinessAppURLScheme://"; // Replace with your app's deep link URL
+        var appStoreUrl = "https://apps.apple.com/us/app/comcast-business/id668736626"; // Replace with your App Store URL
+        
+        // The URL that will try to open the app first, and fallback to App Store URL
+        var qrCodeUrl = deepLink + "||" + appStoreUrl;
+
+        // Generate the QR code
+        new QRCode(document.getElementById("qrcode"), qrCodeUrl);
+    </script>
+</body>
 </html>
