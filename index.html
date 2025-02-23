@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Launch Page</title>
-    <script>
+    <script type="text/javascript">
         // Detecting device and launching app or redirecting to store
         function launchApp() {
             var isAndroid = /android/i.test(navigator.userAgent);
@@ -27,18 +27,15 @@
             }
 
             // Attempt to open the app
-            var startTime = new Date().getTime();
-            var timeout;
+            // var startTime = new Date().getTime();
+            // var timeout;
 
             // Try to open the app
             window.location = appUrl;
 
             // If app does not open within 2 seconds, redirect to store
-            timeout = setTimeout(function() {
-                var endTime = new Date().getTime();
-                if (endTime - startTime < 2000) {
-                    window.location = storeUrl;
-                }
+            setTimeout(function() {
+                window.location = storeUrl;
             }, 1000);
         }
         // Call the launchApp function as soon as the page loads
