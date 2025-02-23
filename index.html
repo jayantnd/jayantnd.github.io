@@ -39,13 +39,12 @@
                 if (endTime - startTime < 2000) {
                     window.location = storeUrl;
                 }
-            }, 1500);
+            }, 1000);
         }
+        // Call the launchApp function as soon as the page loads
+        window.onload = function() {
+            launchApp();
+        };        
     </script>
 </head>
-<body>
-    <h1>Launch Your App</h1>
-    <p>Click the button below to launch the app on your device.</p>
-    <button onclick="launchApp()">Open App</button>
-</body>
 </html>
