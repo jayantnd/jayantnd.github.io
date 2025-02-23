@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Launch Page</title>
+    <script>
+        // Detecting device and launching app or redirecting to store
+        function launchApp() {
+            var isAndroid = /android/i.test(navigator.userAgent);
+            var isIOS = /iphone|ipod|ipad/i.test(navigator.userAgent);
+            var appUrl = "";
+            var storeUrl = "";
+
+            // Replace with your actual app URLs
+            var androidAppUrl = "yourapp://";
+            var iosAppUrl = "ComcastBusinessAppURLScheme://";
+            var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.yourapp";
+            var iosStoreUrl = "https://apps.apple.com/us/app/comcast-business/id668736626";
+
+            if (isAndroid) {
+                appUrl = androidAppUrl;
+                storeUrl = androidStoreUrl;
+            } else if (isIOS) {
+                appUrl = iosAppUrl;
+                storeUrl = iosStoreUrl;
+            }
+
+            // Attempt to open the app
+            var startTime = new Date().getTime();
+            var timeout;
+
+            // Try to open the app
+            window.location = appUrl;
+
+            // If app does not open within 2 seconds, redirect to store
+            timeout = setTimeout(function() {
+                var endTime = new Date().getTime();
+                if (endTime - startTime < 2000) {
+                    window.location = storeUrl;
+                }
+            }, 1500);
+        }
+    </script>
+</head>
+<body>
+    <h1>Launch Your App</h1>
+    <p>Click the button below to launch the app on your device.</p>
+    <button onclick="launchApp()">Open App</button>
+</body>
+</html>
