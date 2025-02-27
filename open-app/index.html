@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to App or App Store</title>
+    <script>
+        window.onload = function() {
+            var appSchemeUrl = "ComcastBusinessAppURLScheme://";  // Replace with your app's custom URL scheme
+            var appStoreUrl = "https://apps.apple.com/us/app/comcast-business/id668736626";  // Replace with your app's App Store link
+
+            // Attempt to open the app via Universal Link
+            window.location = "https://jayantnd.github.io";  // Universal link to your app (it will trigger Universal Links behavior)
+
+            // Set a timeout to fallback to the App Store if the app is not installed
+            setTimeout(function() {
+                window.location = appStoreUrl;  // Redirect to the App Store if the app is not installed
+            }, 2000);  // Timeout duration (in milliseconds) to wait before redirecting
+        };
+    </script>
+</head>
+<body>
+    <p>If your app is installed, it will open automatically. If not, you will be redirected to the App Store.</p>
+</body>
+</html>
