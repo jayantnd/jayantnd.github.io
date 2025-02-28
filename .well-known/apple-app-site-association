@@ -1,10 +1,12 @@
 {
-  "applinks": {
-    "details": [
-      {
-        "appID": "8YLC299EQB.com.comcast.bve",
-        "paths": [ "*" ]
-      }
-    ]
-  }
+    "applinks": {
+        "details": [
+            {
+                "appID": "8YLC299EQB.com.comcast.bve",
+                "paths": [
+                    "/mobile/open-app"
+                ]
+            }
+        ]
+    }
 }
