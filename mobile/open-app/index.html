@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comcast Business Mobile App</title>
+    <script type="text/javascript">
+        // Global URL variable
+        var appStoreUrl = {
+            ios: "https://apps.apple.com/us/app/comcast-business/id668736626",
+            android: "https://play.google.com/store/apps/details?id=com.comcast.business.voiceedge",
+            desktop: "https://business.comcast.com"
+        };
+
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Redirecting based on platform
+            if (/iPhone|iPad|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS
+                document.getElementById('redirect-link').href = appStoreUrl.ios;
+                window.location.href = appStoreUrl.ios;
+            } else if (/android/i.test(userAgent)) {
+                // Android
+                document.getElementById('redirect-link').href = appStoreUrl.android;
+                window.location.href = appStoreUrl.android;
+            } else {
+                // Desktop (Fallback)
+                document.getElementById('redirect-link').href = appStoreUrl.desktop;
+                window.location.href = appStoreUrl.desktop
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected automatically, please <a id="redirect-link">click here</a>.</p>
+</body>
+</html>
