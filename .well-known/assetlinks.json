@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.comcast.business.voiceedge",
+            "sha256_cert_fingerprints": [
+                "44:2C:25:82:60:17:9A:54:C3:51:B3:E0:A5:E7:D3:37:11:F7:D8:D9:59:AC:D6:C1:E1:01:50:01:76:25:CA:7F"
+            ]
+        }
+    }
+]
